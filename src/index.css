@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
+* {
+    margin: o;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background: linear-gradient(90deg, #672280 1.18%, #a626d3 100%);
+    padding: 0 20px;
+    color: white;
+}
+.header-img {
+    width: 60px;
+    margin-right: 7px;
+}
+.main {
+    padding: 40px;
+}
+.btn {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 15px;
+    color: white;
+    background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
+    border-radius: 5px;
+    margin-top: 30px;
+}
+.input-container {
+    display: flex;
+}
+.input {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+.input1 {
+    margin-right: 3em;
+}
+.img-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2.5em;
+    position: relative;
+}
+.meme-img {
+    width: 50%;
+    border-radius: 10px;
+}
+.label {
+    position: absolute;
+    color: white;
+}
+.topText {
+    top: 0;
+}
+.bottomText {
+    bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .input-container {
+        flex-direction: column;
+    }
+    .input {
+        width: 100%;
+    }
+    .input1 {
+        margin: 0 0 1.5em 0;
+    }
+    .meme-img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .course {
+        display: none;
+    }
+    .header-img {
+        width: 50px;
+    }
+    .main {
+        padding: 20px;
+    }
+}
