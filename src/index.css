@@ -67,10 +67,15 @@ code {
     align-items: center;
     justify-content: center;
     margin-top: 2.5em;
+}
+#meme-img-container {
+    width: 50%;
     position: relative;
+    display: flex;
+    justify-content: center;
 }
 .meme-img {
-    width: 50%;
+    width: 100%;
     border-radius: 10px;
 }
 .label {
@@ -106,7 +111,7 @@ code {
     .input1 {
         margin: 0 0 1.5em 0;
     }
-    .meme-img {
+    #meme-img-container {
         width: 100%;
     }
 }

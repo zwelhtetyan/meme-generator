@@ -41,7 +41,7 @@ export default function Meme() {
 
     const handleDownload = () => {
         htmlToImage
-            .toPng(document.getElementById('meme-img'))
+            .toPng(document.getElementById('meme-img-container'))
             .then(function (dataUrl) {
                 download(dataUrl, data.imgName);
             });
@@ -71,9 +71,11 @@ export default function Meme() {
                 Get a new meme image 🖼
             </button>
             <div className='img-container'>
-                <img className='meme-img' id='meme-img' src={data.imageURL} />
-                <h1 className='topText label'>{data.topText}</h1>
-                <h1 className='bottomText label'>{data.bottomText}</h1>
+                <div id='meme-img-container'>
+                    <img className='meme-img' src={data.imageURL} />
+                    <h1 className='topText label'>{data.topText}</h1>
+                    <h1 className='bottomText label'>{data.bottomText}</h1>
+                </div>
             </div>
             <button className='download-btn' onClick={handleDownload}>
                 Download
