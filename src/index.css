@@ -41,6 +41,11 @@ code {
     background: linear-gradient(90.41deg, #711f8d 1.14%, #a818da 100%);
     border-radius: 5px;
     margin-top: 30px;
+    transition: 0.3s;
+    border: none;
+}
+.btn:hover {
+    background: linear-gradient(90.41deg, #5a1c6e 1.14%, #672280 100%);
 }
 .input-container {
     display: flex;
@@ -50,6 +55,8 @@ code {
     padding: 10px;
     border-radius: 5px;
     font-size: 1.2em;
+    outline: none;
+    border: 1px solid black;
 }
 .input1 {
     margin-right: 3em;
