@@ -1,4 +1,6 @@
 import React from 'react';
+import * as htmlToImage from 'html-to-image';
+import download from 'downloadjs';
 
 export default function Meme() {
     const [allMemes, setAllMemes] = React.useState({});
@@ -7,15 +9,8 @@ export default function Meme() {
         topText: '',
         bottomText: '',
         imageURL: 'https://i.imgflip.com/1ii4oc.jpg',
+        imgName: 'Trump Bill Signing',
     });
-
-    const randomImage = () => {
-        if (JSON.stringify(allMemes) !== '{}') {
-            const randomNumber = Math.floor(Math.random() * allMemes.length);
-            const imageURL = allMemes[randomNumber].url;
-            return imageURL;
-        }
-    };
 
     React.useEffect(() => {
         const fetchData = async () => {
@@ -27,10 +22,14 @@ export default function Meme() {
     }, []);
 
     const handleChangeMeme = () => {
+        const randomNumber = Math.floor(Math.random() * allMemes.length);
+        const randomMeme = allMemes[randomNumber];
+        console.log(randomMeme);
         setData((preData) => {
             return {
                 ...preData,
-                imageURL: randomImage(),
+                imageURL: randomMeme.url,
+                imgName: randomMeme.name,
             };
         });
     };
@@ -38,6 +37,14 @@ export default function Meme() {
     const handleChangeText = (e) => {
         const { name, value } = e.target;
         setData((preData) => ({ ...preData, [name]: value }));
+    };
+
+    const handleDownload = () => {
+        htmlToImage
+            .toPng(document.getElementById('meme-img'))
+            .then(function (dataUrl) {
+                download(dataUrl, data.imgName);
+            });
     };
 
     return (
@@ -64,10 +71,13 @@ export default function Meme() {
                 Get a new meme image 🖼
             </button>
             <div className='img-container'>
-                <img className='meme-img' src={data.imageURL} />
+                <img className='meme-img' id='meme-img' src={data.imageURL} />
                 <h1 className='topText label'>{data.topText}</h1>
                 <h1 className='bottomText label'>{data.bottomText}</h1>
             </div>
+            <button className='download-btn' onClick={handleDownload}>
+                Download
+            </button>
         </main>
     );
 }
